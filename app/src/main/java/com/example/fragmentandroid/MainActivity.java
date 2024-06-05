@@ -13,6 +13,8 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 public class MainActivity extends AppCompatActivity {
     Button btn1,btn2,btn3;
@@ -55,12 +57,37 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.replace(R.id.framelayout,fragment);
         fragmentTransaction.commit();
     }
+
+    /*
+        Recycler view set up content
+    */
+
+    public void getFunctionAdapter(RecyclerView recyclerView, AdapterView adapterView,List<String> list)
+    {
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        adapterView=new AdapterView(this,list) ;
+        recyclerView.setAdapter(adapterView);
+    }
 }
 
 
 
 
-/*
-Recycler view set up content
- */
 
+
+
+
+
+
+
+//private RecyclerView recyclerView;
+//private MyAdapter adapter;
+//
+//
+//
+//private void setupRecyclerView() {
+//    recyclerView = findViewById(R.id.recyclerView);
+//    recyclerView.setLayoutManager(new LinearLayoutManager(this));
+//    adapter = new MyAdapter(this, data);
+//    recyclerView.setAdapter(adapter);
+//}
